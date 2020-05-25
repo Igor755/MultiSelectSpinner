@@ -20,26 +20,6 @@
         android:layout_margin="10dp"
         app:hintText="Multi Selection With Filter Without Limit" />
 
-    <com.androidbuts.multispinnerfilter.MultiSpinnerSearch
-        android:id="@+id/searchMultiSpinnerLimit"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:hintText="Multi Selection With Filter And Limit" />
-
-    <com.androidbuts.multispinnerfilter.SingleSpinnerSearch
-        android:id="@+id/searchSingleSpinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:hintText="Single Selection With Filter" />
-
-    <com.androidbuts.multispinnerfilter.SingleSpinner
-        android:id="@+id/singleSpinner"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:hintText="Single Selection" />
 
 
 </LinearLayout>

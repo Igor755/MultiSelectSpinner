@@ -22,8 +22,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -291,7 +294,7 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
                 holder = new ViewHolder();
                 convertView = inflater.inflate(R.layout.item_listview_multiple, parent, false);
                 holder.textView = convertView.findViewById(R.id.alertTextView);
-                holder.checkBox = convertView.findViewById(R.id.alertCheckbox);
+                holder.imageView = convertView.findViewById(R.id.imageView);
 
                 convertView.setTag(holder);
             } else {
@@ -308,8 +311,10 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
             final KeyPairBoolData data = arrayList.get(position);
 
             holder.textView.setText(data.getName());
+            Picasso.get().load(data.getImage()).into(holder.imageView);
+           /// holder.imageView.set
             holder.textView.setTypeface(null, Typeface.NORMAL);
-            holder.checkBox.setChecked(data.isSelected());
+           // holder.imageView.setChecked(data.isSelected());
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -324,7 +329,7 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
                     }
 
                     final ViewHolder temp = (ViewHolder) v.getTag();
-                    temp.checkBox.setChecked(!temp.checkBox.isChecked());
+                   // temp.checkBox.setChecked(!temp.checkBox.isChecked());
 
                     data.setSelected(!data.isSelected());
                     //Log.i(TAG, "On Click Selected Item : " + data.getName() + " : " + data.isSelected());
@@ -334,13 +339,16 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
             if (data.isSelected()) {
                 holder.textView.setTypeface(null, Typeface.BOLD);
                 holder.textView.setTextColor(Color.WHITE);
+                holder.imageView.setBackgroundColor(Color.TRANSPARENT);
+
                 convertView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.list_selected));
             } else {
                 holder.textView.setTypeface(null, Typeface.NORMAL);
                 holder.textView.setTextColor(Color.GRAY);
+                holder.imageView.setBackgroundColor(Color.TRANSPARENT);
                 convertView.setBackgroundColor(ContextCompat.getColor(getContext(), background));
             }
-            holder.checkBox.setTag(holder);
+           // holder.imageView.setTag(holder);
 
             return convertView;
         }
@@ -395,7 +403,7 @@ public class MultiSpinnerSearch extends AppCompatSpinner implements OnCancelList
 
         private class ViewHolder {
             TextView textView;
-            CheckBox checkBox;
+            ImageView imageView;
         }
     }
 }

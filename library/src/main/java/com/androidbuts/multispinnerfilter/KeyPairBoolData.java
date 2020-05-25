@@ -4,8 +4,17 @@ public class KeyPairBoolData {
     private long id;
     private String name;
     private boolean isSelected;
-
+    private Integer image;
     private Object object;
+
+
+    public Integer getImage() {
+        return image;
+    }
+
+    public void setImage(Integer image) {
+        this.image = image;
+    }
 
     public Object getObject() {
         return object;
